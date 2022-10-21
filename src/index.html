@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="display:flex;flex-direction: row;">
+        <canvas id="canvas" width="400px" height="600px" style="background-color:black;"/>
+        </canvas>
+        <div class="controls" style="background-color:#eee;width:400px;height:200px;padding:.5rem;">
+            <span>Controls</span>
+            <button id="btn-zap">ZAP</button>
+        </div>
+    </div>
+</body>
+<script src="patterns.js"></script>
+<script src="index.js"></script>
+<script>
+    // x,y location of first led at the bottom
+    // n number of leds
+    // d size of a pixel
+    // s seperation between pixels
+    const [x,y,n,d,s,fps] = [100,550,80,4,2,60]
+
+    // Strip 1
+    let strip1 = new Strip(x,y,n,d,s,10)
+    strip1.show(random)
+
+    // Strip 2
+    let strip2 = new Strip(x + 200,y,n,d,s,fps)
+    strip2.trigger("btn-zap", fazzer(.4,n))
+
+</script>
+</html>
